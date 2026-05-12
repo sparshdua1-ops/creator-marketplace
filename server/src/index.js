@@ -2,6 +2,8 @@ import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
 
+import authRoutes from "./routes/authRoutes.js";
+
 dotenv.config();
 
 const app = express();
@@ -12,6 +14,8 @@ app.use(express.json());
 app.get("/", (req, res) => {
   res.send("API Running");
 });
+
+app.use("/api/auth", authRoutes);
 
 const PORT = 8000;
 
